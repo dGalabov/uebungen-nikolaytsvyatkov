@@ -29,4 +29,12 @@ public class Help {
 		double sum = (b * b + c * c - a * a) / (2 * b * c);
 		return Math.acos(sum);
 	}
+	public static double calculateLineCoefficient(Point point1,Point point2) {
+		double xDifference=point2.x-point1.x;
+		if(equal(xDifference,0)) {
+			return Double.MIN_VALUE;
+		}else {
+			return(point2.y-point1.y)/xDifference;
+		}
+	}
 }
