@@ -136,4 +136,16 @@ public class Quadrangle extends  GeometricObject {
 	
 	
 	}
+
+	@Override
+	public boolean contains(double x, double y) {
+		Point clickPoint=new Point(x,y);
+		Triangle triangle1=new Triangle(points[0],points[1],clickPoint);
+		Triangle triangle2=new Triangle(points[1],points[2],clickPoint);
+		Triangle triangle3=new Triangle(points[2],points[3],clickPoint);
+		Triangle triangle4=new Triangle(points[3],points[0],clickPoint);
+		double areaSum1=triangle1.calculateArea()+triangle2.calculateArea();
+		double areaSum2=triangle3.calculateArea()+triangle4.calculateArea();
+		return Help.equal(areaSum1+areaSum2, calculateArea());
+	}
 }

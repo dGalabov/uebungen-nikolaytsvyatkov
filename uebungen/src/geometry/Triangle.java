@@ -122,4 +122,14 @@ public class Triangle extends GeometricObject {
 	
 	
 	}
+
+	@Override
+	public boolean contains(double x, double y) {
+		Point clickPoint=new Point(x,y);
+		Triangle triangle1=new Triangle(points[0],points[1],clickPoint);
+		Triangle triangle2=new Triangle(points[1],points[2],clickPoint);
+		Triangle triangle3=new Triangle(points[2],points[0],clickPoint);
+		double areSum=triangle1.calculateArea()+triangle2.calculateArea()+triangle3.calculateArea();
+		return Help.equal(areSum, calculateArea());
+	}
 }

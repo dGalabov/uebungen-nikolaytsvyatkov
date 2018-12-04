@@ -81,4 +81,12 @@ public class Ellipse extends GeometricObject {
 		double scaledB=b*scale;
 		return new javafx.scene.shape.Ellipse(scaledCenterX,scaledCenterY,scaledA,scaledB);
 	}
+	@Override
+	public boolean contains(double x, double y) {
+		double xCenter=points[0].x+a;
+		double yCenter=points[0].y+b;
+		double result=(Math.pow(x-xCenter,2)/(a*a))
+				+(Math.pow(y-yCenter,2)/(b*b));
+		return result<=1;
+	}
 }

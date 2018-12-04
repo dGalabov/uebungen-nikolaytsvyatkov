@@ -81,5 +81,13 @@ public class Rechtangle extends GeometricObject {
 	double scaledWidth=width*scale;
 	return new javafx.scene.shape.Rectangle(scaledX,scaledY,scaledWidth,scaledHeight);
 	}
+	@Override
+	public boolean contains(double x, double y) {
+		boolean xInside=points[0].x<x&&x<(points[0].x+width);
+		boolean yInside=points[0].y<y&&y<(points[0].y+height);
+		return xInside&&yInside;
+	
+	}
+	
 
 }
